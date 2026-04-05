@@ -1,0 +1,35 @@
+# VitaCoach Proxy
+
+Anthropic API için Vercel proxy sunucusu.
+
+## Deploy Adımları
+
+### 1. Vercel'e yükle
+- vercel.com → New Project → bu klasörü import et
+- Ya da: `npx vercel` komutuyla terminal'den deploy et
+
+### 2. Environment Variable ekle
+Vercel Dashboard → Projen → Settings → Environment Variables:
+```
+ANTHROPIC_API_KEY = sk-ant-api03-xxxx...
+```
+
+### 3. Redeploy
+Environment variable ekledikten sonra tekrar deploy et.
+
+### 4. VitaCoach'ta URL güncelle
+Uygulamandaki tüm:
+```
+https://api.anthropic.com/v1/messages
+```
+adreslerini şununla değiştir:
+```
+https://PROJE-ADIN.vercel.app/api/claude
+```
+
+## Test
+Deploy sonrası şu URL'yi tarayıcıda aç:
+```
+https://PROJE-ADIN.vercel.app/api/claude
+```
+"Method not allowed" yazısı görürsen proxy çalışıyor demektir.
